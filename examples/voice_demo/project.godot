@@ -1,0 +1,14 @@
+; Engine configuration file.
+; Voice demo for Parakeet for Godot — see README.md in the repo root.
+
+config_version=5
+
+[application]
+
+config/name="Parakeet Voice Demo"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

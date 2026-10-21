@@ -1,0 +1,8 @@
+# Models are downloaded separately (CC-BY 4.0, ~640 MB) — never committed.
+backend/models/
+# Godot import artifacts
+.godot/
+examples/voice_demo/addons/
+*.wav
+__pycache__/
+.venv/
