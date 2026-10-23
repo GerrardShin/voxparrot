@@ -5,7 +5,7 @@ extends Node
 ## Headless test:
 ##   godot --headless --path . -- --wav /path/to/sample.wav
 ## The ParakeetVoice node comes from the addon — this demo project expects
-## the repo's addons/godot_parakeet folder to be copied/linked into it,
+## the repo's engines/godot/addons/godot_parakeet folder to be copied/linked into it,
 ## exactly like a real game would. The run_demo.sh script sets that up.
 
 var voice: ParakeetVoice

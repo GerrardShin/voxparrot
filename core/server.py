@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""godot-parakeet PoC backend — engine-agnostic STT sidecar.
+"""VoxParrot core — PoC backend — engine-agnostic STT sidecar.
 
 Serves on-device speech-to-text over localhost HTTP so any game engine
 (Godot today, Unity/Unreal next) can use the same core:
@@ -41,14 +41,14 @@ def load_recognizer(model_dir: str, threads: int):
         model_type="nemo_transducer",
         debug=False,
     )
-    print(f"[godot-parakeet] model loaded in {time.time() - t0:.2f}s: {MODEL_NAME}", flush=True)
+    print(f"[voxparrot] model loaded in {time.time() - t0:.2f}s: {MODEL_NAME}", flush=True)
     # Warmup so the first real request is not the slow one.
     import numpy as np
 
     stream = RECOGNIZER.create_stream()
     stream.accept_waveform(16000, np.zeros(16000, dtype="float32"))
     RECOGNIZER.decode_stream(stream)
-    print("[godot-parakeet] warmup done", flush=True)
+    print("[voxparrot] warmup done", flush=True)
 
 
 def transcribe(wav_bytes: bytes) -> dict:
@@ -106,5 +106,5 @@ if __name__ == "__main__":
     ap.add_argument("--threads", type=int, default=4)
     args = ap.parse_args()
     load_recognizer(args.model_dir, args.threads)
-    print(f"[godot-parakeet] listening on http://127.0.0.1:{args.port}", flush=True)
+    print(f"[voxparrot] listening on http://127.0.0.1:{args.port}", flush=True)
     ThreadingHTTPServer(("127.0.0.1", args.port), Handler).serve_forever()

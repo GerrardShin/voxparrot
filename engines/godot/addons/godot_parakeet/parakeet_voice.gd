@@ -8,7 +8,7 @@ extends Node
 ##  2. Any WAV you already have: [method transcribe_wav_bytes] /
 ##     [method transcribe_file]
 ##
-## Recognition runs in the local backend (see backend/server.py in the repo):
+## Recognition runs in the local backend (see core/server.py in the repo):
 ## sherpa-onnx + NVIDIA Parakeet TDT, fully on-device. Nothing leaves the
 ## player's machine. A native GDExtension backend is on the roadmap; the
 ## HTTP contract stays the same so games will not need code changes.
